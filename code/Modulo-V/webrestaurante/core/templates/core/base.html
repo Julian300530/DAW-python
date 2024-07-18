@@ -91,9 +91,11 @@
         </a>
       </p>
       <p class="m-0 mbt">
-        <a href="sample.html" class="link">Política de privacidad</a> ·
-        <a href="sample.html" class="link">Aviso legal</a> ·
-        <a href="sample.html" class="link">Cookies</a>
+        {% load pages_extras %}
+        {%get_pages_list as page_list%}
+        {% for page in page_list %}
+          <a href="{%url 'pages:page' pages.id%}" class="link">{{page.title}}</a>
+        {% endfor %}
       </p>
       <p class="m-0 mbt1">&copy; La Recova <span id="year"></span></p>
     </div>
